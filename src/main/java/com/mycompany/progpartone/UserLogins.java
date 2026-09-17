@@ -10,6 +10,8 @@ package com.mycompany.progpartone;
  */
 public class UserLogins {
     
+    private String name;
+    private String surname;
     public String userName;
     public String phoneNumber;
     public String Password;
@@ -22,7 +24,7 @@ public class UserLogins {
 }
 
              public boolean CheckuserName(String userName){
-        if(userName.contains("_") && userName.length()== 5){
+        if(userName.contains("_") && userName.length()<= 5){
             return true;
         }else{
             return false;
@@ -54,6 +56,22 @@ public String registerUser(String userName, String phoneNumber, String Password)
             return "Your password has been formatted incorrectly, please ensure your password contains at least eight characters, a capital letter, a number and a special character.";
         }
     return "Registration successful.";
+}
+}
+
+public boolean UserLogin(String userName, String phoneNumber, String Password){
+    //Username.equals(Username) and Password.equals(Password) always
+    return this.userName.equals(userName)&& this.Password.equals(Password);
+}
+
+public String returnUserLoginStatus(Boolean LoginSuccessful, boolean LoginUnsuccessful){
+    if(LoginSuccessful){
+        return "Welcome back " + name + "continue where you left off? ";
+    }else if(LoginUnsuccessful){
+        return "Username or password incorrect";
+    }else{
+        return "Login Unsuccessful";
+    }
 }
 }
 
