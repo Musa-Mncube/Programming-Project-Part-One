@@ -7,8 +7,8 @@ package com.mycompany.progpartone;
  */
 public class UserLogins {
     
-    private String name;
-    private String surname;
+    public String name;
+    public String surname;
     public String userName;
     public String phoneNumber;
     public String Password;
