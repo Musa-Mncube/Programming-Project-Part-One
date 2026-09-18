@@ -12,7 +12,7 @@ public class PROGPartOne {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        UserLogins obj = new UserLogins();
+        UserLogins obj = new UserLogins("","","");
         
             System.out.println("======Registration======");
             
@@ -21,12 +21,15 @@ public class PROGPartOne {
         
         System.out.println("============================");
         System.out.println("Welcome " + name + ", please enter your surname.");
-        System.out.println("Hi there, what is your" + " username?");
+         String surname = input.nextLine();
+         
+        System.out.println("Create your username.");
         String userName = input.nextLine();
         
         System.out.println("============================");
-        System.out.println("Welcome " + userName + ", please enter your phone number.");
+        System.out.println("Enter your phone number.");
         String phoneNumber = input.nextLine();
+        
         obj.checkPhoneNumber(phoneNumber);
         
         System.out.println("============================");
