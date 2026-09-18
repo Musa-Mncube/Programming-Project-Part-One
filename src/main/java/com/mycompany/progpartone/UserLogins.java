@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.progpartone;
 
 /**
@@ -38,11 +35,12 @@ public boolean checkPhoneNumber(String phoneNumber){
 
 public boolean checkPassword(String Password){
     //at least 8 characters long, one uppercase, letter, at least one digit
-    if(Password.contains("A-Z" + "0-9" + "^-zA-z0-9") && Password.length() >= 8){
-        return true;
-    }else{
-        return false;
-    }
+  boolean hasLength = Password.length()>= 8;
+  boolean hasCapital = Password.matches(".*[A-Z].*");
+  boolean hasNumber = Password.matches(".*[0-9].*");
+  boolean hasSpecial = Password.matches(".*[^A-Za-z)-9].*");
+  return hasLength && hasCapital && hasNumber && hasSpecial;
+  
     }
     
 public String registerUser(String userName, String phoneNumber, String Password){
@@ -57,7 +55,6 @@ public String registerUser(String userName, String phoneNumber, String Password)
         }
     return "Registration successful.";
 }
-}
 
 public boolean UserLogin(String userName, String phoneNumber, String Password){
     //Username.equals(Username) and Password.equals(Password) always
@@ -66,7 +63,7 @@ public boolean UserLogin(String userName, String phoneNumber, String Password){
 
 public String returnUserLoginStatus(Boolean LoginSuccessful, boolean LoginUnsuccessful){
     if(LoginSuccessful){
-        return "Welcome back " + name + "continue where you left off? ";
+        return "Welcome back " + name + surname + " it is great to see you. ";
     }else if(LoginUnsuccessful){
         return "Username or password incorrect";
     }else{
