@@ -18,10 +18,12 @@ public class PROGPartOne {
             
          System.out.println("Hi there, what is your name?");
         String name = input.nextLine();
+        obj.name = name;
         
         System.out.println("============================");
         System.out.println("Welcome " + name + ", please enter your surname.");
          String surname = input.nextLine();
+         obj.surname = surname;
          
         System.out.println("Create your username.");
         String userName = input.nextLine();

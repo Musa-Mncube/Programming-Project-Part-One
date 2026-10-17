@@ -64,8 +64,6 @@ public boolean UserLogin(String userName, String phoneNumber, String Password){
 public String returnUserLoginStatus(Boolean LoginSuccessful, boolean LoginUnsuccessful){
     if(LoginSuccessful){
         return "Welcome back " + name + surname + " it is great to see you. ";
-    }else if(LoginUnsuccessful){
-        return "Username or password incorrect";
     }else{
         return "Login Unsuccessful";
     }

@@ -22,13 +22,12 @@ public class UserLoginsTest {
      */
     @Test
     public void testCheckuserNameValid() {
-        System.out.println("CheckuserName");
-        String userName = "kyl_1";
-        UserLogins instance = new UserLogins("","","");
+     System.out.println("CheckuserName");
+         String userName = "kyl_1";
+        UserLogins instance =new UserLogins("","","");
         boolean expResult = true;
         boolean result = instance.CheckuserName(userName);
         assertEquals(expResult, result);
-  
     }
     
     @Test
@@ -157,10 +156,14 @@ public class UserLoginsTest {
     @Test
     public void testReturnUserLoginStatusValid() {
         System.out.println("returnUserLoginStatus");
-        Boolean LoginSuccessful = true;
+        boolean LoginSuccessful = true;
         boolean LoginUnsuccessful = false;
        UserLogins instance =new UserLogins("","","");
-        String expResult = "Welcome back " + name + surname + " it is great to see you. ";
+       instance.name = null;
+       instance.surname = null;
+        //String surname = null;
+        
+        String expResult = "Welcome back " + instance.name + instance.surname + " it is great to see you. ";
         String result = instance.returnUserLoginStatus(LoginSuccessful, LoginUnsuccessful);
         assertEquals(expResult, result);
      
@@ -172,7 +175,7 @@ public class UserLoginsTest {
         Boolean LoginSuccessful = false;
         boolean LoginUnsuccessful = true;
         UserLogins instance =new UserLogins("","","");
-        String expResult = "Username or password incorrect";
+        String expResult = "Login Unsuccessful";
         String result = instance.returnUserLoginStatus(LoginSuccessful, LoginUnsuccessful);
         assertEquals(expResult, result);
      
