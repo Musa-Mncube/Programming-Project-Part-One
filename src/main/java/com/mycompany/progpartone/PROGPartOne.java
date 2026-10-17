@@ -58,6 +58,24 @@ public class PROGPartOne {
         }
         
         //----------------------------------------Part 2: Sending Messages------------------------
+        System.out.println("Welcome to QuickChat.");
+        
+        System.out.println("How many messages would you like to send?");
+        int numMessages = readInt(input);
+        int numMessagesEntered = 0;
+        
+        boolean running = true;
+        while (running) {
+            System.out.println("Please select an option:");
+            System.out.println("Option 1: Send Messages");
+            System.out.println("Option 2: Show Recently Sent Messages");
+            System.out.println("Option 3: Quit");
+            System.out.println("Enter choice: ");
+            
+            int choice = readInt(input);
+            
+            switch (choice){
+        }
         
         
         
