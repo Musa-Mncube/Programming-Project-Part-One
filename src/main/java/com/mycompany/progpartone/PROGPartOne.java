@@ -45,6 +45,21 @@ public class PROGPartOne {
         
         System.out.println("===== Login ======");
         
+        input.nextLine();
+        boolean loginSuccessful = false;
+        while (!loginSuccessful){
+            System.out.println("Please enter your username to login.");
+            String loginUsername = input.nextLine(); //come back and check this later
+            System.out.println("Enter your password to login.");
+            String loginPassword = input.nextLine();
+            
+            loginSuccessful = obj.UserLogin(userName, phoneNumber, Password);
+            System.out.println(obj.returnUserLoginStatus(loginSuccessful, loginSuccessful));
+        }
+        
+        //----------------------------------------Part 2: Sending Messages------------------------
+        
+        
         
         
         
