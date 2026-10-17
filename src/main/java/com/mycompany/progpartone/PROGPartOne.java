@@ -95,6 +95,12 @@ public class PROGPartOne {
             }
         }
         
+        System.out.println("Total Messages Sent: " + Message.returnTotalMessages());
+        System.out.println("\n" + Message.printMessages());
+        
+        input.close();
+    }
+        
         
         
         
