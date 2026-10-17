@@ -75,7 +75,26 @@ public class PROGPartOne {
             int choice = readInt(input);
             
             switch (choice){
+                case 1: 
+                    if (numMessagesEntered >= numMessages) {
+                        System.out.println("You have already entered your set number of messages( "+numMessages+ ")");
+                    }else{
+                        numMessagesEntered++;
+                        sendOneMessage(input, numMessagesEntered, numMessages);
+                    }
+                    break;
+                case 2:
+                    System.out.println("Coming Soon.");
+                    break;
+                case 3:
+                    running = false;
+                    System.out.println("Goodbye.");
+                    break;
+                default:
+                    System.out.println("Invalid option, please try again.");
+            }
         }
+        
         
         
         
