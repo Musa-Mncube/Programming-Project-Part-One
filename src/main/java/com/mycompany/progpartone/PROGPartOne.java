@@ -100,6 +100,12 @@ public class PROGPartOne {
         
         input.close();
     }
+    
+    private static void sendOneMessage(Scanner input, int messageNum, int numMessages){
+        System.out.println("\n--- Message " + messageNum + "of" + numMessages + "---");
+        
+        String recipientNumber;
+        String recipientResult;
         
         
         
