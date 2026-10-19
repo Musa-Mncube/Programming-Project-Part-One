@@ -106,6 +106,19 @@ public class PROGPartOne {
         
         String recipientNumber;
         String recipientResult;
+        do{
+            System.out.println("Enter recipient's cell number: ");
+            recipientNumber = input.nextLine().trim();
+            recipientResult = Message.checkRecipientCell(recipientNumber);
+            System.out.println(recipientResult);
+        }while (!recipientResult.equals("Cell phone number successfully captured"));
+        
+        String message;
+        String lengthResult;
+        do{
+            System.out.println("Enter your message: ");
+            messageS
+        }
         
         
         
