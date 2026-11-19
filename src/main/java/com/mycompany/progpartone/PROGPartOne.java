@@ -6,7 +6,7 @@ package com.mycompany.progpartone;
 import java.util.Scanner;
 /**
  *
- * @author Student
+ * @author Musawenkosi Mncube ST10507845
  */
 public class PROGPartOne {
 
@@ -25,37 +25,43 @@ public class PROGPartOne {
          String surname = input.nextLine();
          obj.surname = surname;
          
-        System.out.println("Create your username.");
-        String userName = input.nextLine();
-        
-        System.out.println("============================");
-        System.out.println("Enter your phone number.");
-        String phoneNumber = input.nextLine();
-        
-        obj.checkPhoneNumber(phoneNumber);
-        
-        System.out.println("============================");
-        System.out.println("Please create your password.");
-        String Password = input.next();
-        obj.checkPassword(Password);
-        System.out.println("============================");
-        
-        String results = obj.registerUser(userName, phoneNumber, Password);
-        System.out.println(results);
-        
-        System.out.println("===== Login ======");
-        
-        input.nextLine();
-        boolean loginSuccessful = false;
-        while (!loginSuccessful){
-            System.out.println("Please enter your username to login.");
-            String loginUsername = input.nextLine(); //come back and check this later
-            System.out.println("Enter your password to login.");
-            String loginPassword = input.nextLine();
-            
-            loginSuccessful = obj.UserLogin(userName, phoneNumber, Password);
-            System.out.println(obj.returnUserLoginStatus(loginSuccessful, loginSuccessful));
-        }
+         String userName;
+         String phoneNumber;
+         String Password;
+         String results;
+         do {
+             System.out.println("Create your username.");
+             userName = input.nextLine();
+             
+             System.out.println("==============================");
+             System.out.println("Enter your phone number.");
+             phoneNumber = input.nextLine();
+             
+             obj.checkPhoneNumber(phoneNumber);
+             
+             System.out.println("=================================");
+             System.out.println("Please create your password.");
+             Password = input.nextLine();
+             obj.checkPassword(Password);
+             System.out.println("==================================");
+             
+             results = obj.registerUser(userName, phoneNumber, Password);
+             System.out.println(results);
+         } while (!results.equals("Registration successful."));
+         
+         System.out.println("==== Login ====");
+         
+         boolean loginSuccessful = false;
+         while (!loginSuccessful){
+             System.out.println("Please enter your username to login.");
+             String loginUsername = input.nextLine();
+             System.out.println("Enter your password to login.");
+             String loginPassword = input.nextLine();
+             
+             loginSuccessful = obj.UserLogin(loginUsername, phoneNumber, loginPassword);
+             System.out.println(obj.returnUserLoginStatus(loginSuccessful, !loginSuccessful));
+             
+         }
         
         //----------------------------------------Part 2: Sending Messages------------------------
         System.out.println("Welcome to QuickChat.");
@@ -117,14 +123,39 @@ public class PROGPartOne {
         String lengthResult;
         do{
             System.out.println("Enter your message: ");
-            messageS
+            message = input.nextLine();
+            lengthResult = Message.checkMessageLength(message);
+            System.out.println(lengthResult);
+        }while (!lengthResult.equals("Message sent"));
+        
+        Message newMessage = new Message(recipientNumber, message);
+        
+        if (!newMessage.checkMessageID()){
+            System.out.println("Message ID generation failed, skipping this message.");
+            return;
         }
         
-        
-        
-        
-        
-        
+        System.out.println("\nWhat would you like to do with this message?");
+        System.out.println("1) Send Message");
+        System.out.println("2) Disregard Message");
+        System.out.println("3) Store Message to send later");
+        System.out.print("Enter choice: ");
+        int action = readInt(input);
+        System.out.println(newMessage.SentMessage(action));
+        if (action == 1) {
+            System.out.println("\nMessage ID: " + newMessage.getMessageID());
+            System.out.println("Message Hash: " + newMessage.getMessageHash());
+            System.out.println("Recipient: " + newMessage.getRecipientNumber());
+            System.out.println("Message: " + newMessage.getMessage());
+        }
     }
+
+    private static int readInt(Scanner input) {
+      try{
+          return Integer.parseInt(input.nextLine().trim());
+      }catch (NumberFormatException e) {
+          return -1;
+    }
+}
 }
 
