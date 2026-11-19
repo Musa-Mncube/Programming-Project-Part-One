@@ -3,7 +3,7 @@ package com.mycompany.progpartone;
 
 /**
  *
- * @author Student
+ * @author Musawenkosi Mncube ST10507845
  */
 public class UserLogins {
     
@@ -53,6 +53,10 @@ public String registerUser(String userName, String phoneNumber, String Password)
         if (!checkPassword(Password)){
             return "Your password has been formatted incorrectly, please ensure your password contains at least eight characters, a capital letter, a number and a special character.";
         }
+        //fixed it here,so that it remembers the registered details and has something to compare against
+        this.userName = userName;
+        this.phoneNumber = phoneNumber;
+        this.Password = Password;
     return "Registration successful.";
 }
 
