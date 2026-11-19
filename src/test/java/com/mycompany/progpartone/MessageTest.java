@@ -220,11 +220,11 @@ public class MessageTest {
         String json = Files.readString(Paths.get(TEST_FILE)).trim();
         assertTrue(json.startsWith("["));
         assertTrue(json.endsWith("]"));
-        assertEquals(1, json.split("\\],").length); // only one closing bracket group
+        assertEquals(1, json.split("\\],").length); 
         assertTrue(json.contains("\"messageID\": \"0012345678\""));
         assertTrue(json.contains("\"messageID\": \"0198765432\""));
         assertTrue(json.contains("\"messageHash\": \"00:0:HITONIGHT\""));
         assertTrue(json.contains("He said \\\"pay me\\\""));
-        assertTrue(json.contains("},\n  {")); // the two objects are separated by a comma
+        assertTrue(json.contains("},\n  {"));
     }
 }
