@@ -62,27 +62,76 @@ public class PROGPartOne {
              System.out.println(obj.returnUserLoginStatus(loginSuccessful, !loginSuccessful));
              
          }
+         //Start of PART 3 startup
+         Message.setSender(userName);
+         Message.loadStoredMessages(); //read messages.json into stored messages
+         //end of PART 3 startup
         
         //----------------------------------------Part 2: Sending Messages------------------------
         System.out.println("Welcome to QuickChat.");
         
-        System.out.println("How many messages would you like to send?");
-        int numMessages = readInt(input);
-        int numMessagesEntered = 0;
+        int numMessages = 0;
+        while (numMessages < 1){
+            System.out.println("How many messages would you like to send?");
+            numMessages = readInt(input);
+            if(numMessages < 1){
+                System.out.println("Please enter a whole number of 1 or more.");
+            }
+        }
+        boolean allMessagesEntered = false;
         
         boolean running = true;
-        while (running) {
-            System.out.println("Please select an option:");
+        while (running){
+           System.out.println("Please select an option:");
             System.out.println("Option 1: Send Messages");
             System.out.println("Option 2: Show Recently Sent Messages");
             System.out.println("Option 3: Quit");
+            //Part 3
             System.out.println("Enter choice: ");
+            
+        }
             
             int choice = readInt(input);
             
             switch (choice){
                 case 1: 
-                    if (numMessagesEntered >= numMessages) {
+                    if (allMessagesEntered{
+                        System.out.println("You have already enterd your set number of messages (" + numMessages + ").");
+                    }}else{
+                            //Fixed the for loop so it runs the set number of messages
+                            for (int i = 1; i <= numMessages; i++){
+                                sendOneMessage(input, i, numMessages);
+                            }
+                            allMessagesEntered = true;
+                            System.out.println("Total Messages Sent: " + Message.returnTotalMessages());
+                            }
+                    break;
+                    case 2:
+                    System.out.println("Coming soon");
+                    break;
+                    case 3:
+                    running = false;
+                    System.out.println("Goodbye.");
+                    break;
+                    //PART 3
+                    case 4:
+                    storedMessagesMenu(input);
+                    break;
+                    //end of part 3
+                    default:
+                    System.out.println("Invalid option, please try again");
+                    
+                    }
+    }
+   
+                    System.out.println("Total Messages sent: " + Message.returnTotalMessages());
+                    System.out.println("/n" + Message.printMessages());
+                    
+                    input.close();
+}
+
+private static void sendOneMessage(Scanner input, int messageNum, int numMessages){
+System.out.println("/n--- Message " + messageNum + "of " + numMessages + " ---")
                         System.out.println("You have already entered your set number of messages( "+numMessages+ ")");
                     }else{
                         numMessagesEntered++;
