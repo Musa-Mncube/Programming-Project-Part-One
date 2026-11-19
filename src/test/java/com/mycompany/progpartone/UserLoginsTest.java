@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
- * @author Student
+ * @author Musawenkosi Mncube ST10507845
  */
 public class UserLoginsTest {
     
